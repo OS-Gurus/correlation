@@ -1,0 +1,70 @@
+{
+  "name": "@os-gurus/YOUR_PROJECT",
+  "version": "0.0.0",
+  "description": "YOUR_DESCRIPTION",
+  "main": "out/src/index.js",
+  "types": "out/src/index.d.ts",
+  "module": "src/index.ts",
+  "engines": {
+    "node": ">=14.7.0"
+  },
+  "files": [
+    "out"
+  ],
+  "author": "YOUR_NAME <YOUR_EMAIL>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OS-Gurus/YOUR_PROJECT.git"
+  },
+  "private": false,
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@tsconfig/node14": "^1.0.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^14.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.6",
+    "jest-mock-process": "^1.4.1",
+    "semantic-release": "^17.4.5",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "test:update": "jest --no-cache -u",
+    "test:watch": "jest --watch",
+    "lint": "eslint src",
+    "build": "rm -rf out && tsc -p .",
+    "postbuild": "du -hcs out/*",
+    "dev": "yarn build --watch"
+  },
+  "release": {
+    "branches": [
+      "trunk"
+    ],
+    "plugins": [
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
+}
